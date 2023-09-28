@@ -1,8 +1,9 @@
 import { INodeProperties } from 'n8n-workflow';
+import { Resources } from './constants';
 
 const displayOptions = {
     show: {
-        resource: ['competitors'],
+        resource: [Resources.Competitors],
         operation: ['addCompetitors'],
     },
 };

@@ -32,6 +32,7 @@ import { deleteUrlOperations } from './DeleteUrl';
 import { executeUrlOperation } from './ExecuteUrlFunctions';
 import { executeCompetitorsOperation } from './ExecuteCompetitorsFunctions';
 import { executeSeriesOperation } from './ExecuteSeriesFunctions';
+import { DefaultResource, Resources } from './constants';
 
 
 export class Nightwatch implements INodeType {
@@ -61,20 +62,23 @@ export class Nightwatch implements INodeType {
                 type: 'options',
                 options: [
                     {
-                        name: 'Keyword',
-                        value: 'keywords',
+                        name: Resources.Keywords,
+                        value: Resources.Keywords
                     },
                     {
-                        name: 'Series',
-                        value: 'series',
+                        name: Resources.Series,
+                        value: Resources.Series
                     },
                     {
-                        name: 'Competitor',
-                        value: 'competitors',
+                        name: Resources.Competitors,
+                        value: Resources.Competitors
                     },
-                    { name: "Url", value: "urls" }
+                    {
+                        name: Resources.Urls,
+                        value: Resources.Urls
+                    }
                 ],
-                default: 'keywords',
+                default: DefaultResource,
                 noDataExpression: true,
                 required: true,
             },
@@ -89,7 +93,7 @@ export class Nightwatch implements INodeType {
                 required: true,
                 displayOptions: {
                     show: {
-                        resource: ['keywords', "competitors"],
+                        resource: [Resources.Keywords, Resources.Competitors],
                     }
                 },
                 default: '',
@@ -127,16 +131,16 @@ export class Nightwatch implements INodeType {
 
         for (let i = 0; i < items.length; i++) {
             switch (resource) {
-                case "keywords":
+                case Resources.Keywords:
                     executeFunction = executeKeywordsOperation
                     break;
-                case "urls":
+                case Resources.Urls:
                     executeFunction = executeUrlOperation
                     break;
-                case "competitors":
+                case Resources.Competitors:
                     executeFunction = executeCompetitorsOperation
                     break;
-                case "series":
+                case Resources.Series:
                     executeFunction = executeSeriesOperation
                     break;
                 default:

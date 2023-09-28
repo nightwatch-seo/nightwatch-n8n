@@ -1,4 +1,5 @@
 import { INodeProperties } from "n8n-workflow";
+import { Resources } from "./constants";
 
 
 export const KeywordsOperations: INodeProperties = {
@@ -7,7 +8,7 @@ export const KeywordsOperations: INodeProperties = {
     type: 'options',
     displayOptions: {
         show: {
-            resource: ['keywords'],
+            resource: [Resources.Keywords],
         }
     },
     options: [
