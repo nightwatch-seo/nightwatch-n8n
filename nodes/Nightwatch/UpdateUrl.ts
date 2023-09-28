@@ -148,7 +148,7 @@ export const updateUrlOperations: INodeProperties[] = [
                 name: 'backlinks_settings.ignored_domains',
                 type: 'string',
                 default: '',
-                description: 'Comma seperated domain backlinks that should be ignored',
+                description: 'Comma-separated domain backlinks that should be ignored',
             },
 
             {

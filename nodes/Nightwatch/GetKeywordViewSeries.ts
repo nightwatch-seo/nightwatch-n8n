@@ -17,7 +17,7 @@ export const getKeywordViewSeriesOperations: INodeProperties[] = [
         displayOptions,
         default: '',
         placeholder: "161490,161491,161492",
-        description: "Comma seperated Keyword View IDs"
+        description: "Comma-separated Keyword View IDs"
     },
     {
         displayName: 'Date From',

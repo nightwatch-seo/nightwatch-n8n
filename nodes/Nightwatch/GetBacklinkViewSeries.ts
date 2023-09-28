@@ -17,7 +17,7 @@ export const getBacklinkViewSeriesOperations: INodeProperties[] = [
         displayOptions,
         default: '',
         placeholder: "161490,161491,161492",
-        description: "Comma seperated Backlink View IDs"
+        description: "Comma-separated Backlink View IDs"
     },
     {
         displayName: 'Date From',

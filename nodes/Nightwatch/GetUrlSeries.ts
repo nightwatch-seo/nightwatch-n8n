@@ -17,7 +17,7 @@ export const getUrlSeriesOperations: INodeProperties[] = [
         displayOptions,
         default: '',
         placeholder: "161490,161491,161492",
-        description: "Comma seperated URL IDs"
+        description: "Comma-separated URL IDs"
     },
     {
         displayName: 'Date From',

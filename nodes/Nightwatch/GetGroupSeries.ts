@@ -17,7 +17,7 @@ export const getGroupSeriesOperations: INodeProperties[] = [
         displayOptions,
         default: '',
         placeholder: "161490,161491,161492",
-        description: "Comma seperated Group IDs"
+        description: "Comma-separated Group IDs"
     },
     {
         displayName: 'Date From',

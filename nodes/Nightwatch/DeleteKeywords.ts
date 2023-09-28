@@ -17,6 +17,6 @@ export const deleteKeywordsOperations: INodeProperties[] = [
         displayOptions,
         default: '',
         placeholder: 'keyword_id_1,keyword_id_2,keyword_id_3',
-        description: 'Comma seperated keyword IDs for removal',
+        description: 'Comma-separated keyword IDs for removal',
     },
 ];
