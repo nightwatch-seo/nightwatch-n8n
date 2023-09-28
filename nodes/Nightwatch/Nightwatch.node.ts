@@ -32,7 +32,7 @@ import { deleteUrlOperations } from './DeleteUrl';
 import { executeUrlOperation } from './ExecuteUrlFunctions';
 import { executeCompetitorsOperation } from './ExecuteCompetitorsFunctions';
 import { executeSeriesOperation } from './ExecuteSeriesFunctions';
-import { DefaultResource, Resources } from './constants';
+import { DefaultResource, NightWatchCredentialsName, Resources } from './constants';
 
 
 export class Nightwatch implements INodeType {
@@ -51,7 +51,7 @@ export class Nightwatch implements INodeType {
         outputs: ['main'],
         credentials: [
             {
-                name: 'nightwatchApi',
+                name: NightWatchCredentialsName,
                 required: true,
             },
         ],

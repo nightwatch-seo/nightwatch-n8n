@@ -40,3 +40,5 @@ export const ResourceOperations = {
 
     }
 }
+
+export const NightWatchCredentialsName = "nightwatchApi" 

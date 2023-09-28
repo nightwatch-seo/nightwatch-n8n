@@ -1,6 +1,6 @@
 import { IExecuteFunctions } from "n8n-workflow";
 import { OptionsWithUri } from "request-promise-native";
-import { ResourceOperations, Resources, baseUri } from "./constants";
+import { NightWatchCredentialsName, ResourceOperations, Resources, baseUri } from "./constants";
 import { getAdditionalFields } from "./utils";
 
 
@@ -23,7 +23,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
             };
             responseData = await iExecuteFunctions.helpers.requestWithAuthentication.call(
                 iExecuteFunctions,
-                'nightwatchApi',
+                NightWatchCredentialsName,
                 options,
             );
             break;
@@ -38,7 +38,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
             };
             responseData = await iExecuteFunctions.helpers.requestWithAuthentication.call(
                 iExecuteFunctions,
-                'nightwatchApi',
+                NightWatchCredentialsName,
                 options,
             );
             break;
@@ -51,7 +51,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
             };
             responseData = await iExecuteFunctions.helpers.requestWithAuthentication.call(
                 iExecuteFunctions,
-                'nightwatchApi',
+                NightWatchCredentialsName,
                 options,
             );
             break;

@@ -4,9 +4,10 @@ import {
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
+import { NightWatchCredentialsName } from '../nodes/Nightwatch/constants';
 
 export class NightwatchApi implements ICredentialType {
-	name = 'nightwatchApi';
+	name = NightWatchCredentialsName;
 	displayName = 'Nightwatch API';
 	properties: INodeProperties[] = [
 		{
