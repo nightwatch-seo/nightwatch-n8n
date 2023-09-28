@@ -1,6 +1,6 @@
 import { IDataObject, IExecuteFunctions } from "n8n-workflow";
 import { OptionsWithUri } from "request-promise-native";
-import { baseUri } from "./constants";
+import { ResourceOperations, Resources, baseUri } from "./constants";
 import { getAdditionalFields } from "./utils";
 
 
@@ -13,7 +13,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
 
 
     switch (operation) {
-        case "getUrlSeries":
+        case ResourceOperations[Resources.Series].GetUrlSeries:
             const url_ids = iExecuteFunctions.getNodeParameter('url_ids', i) as string;
             const additionalFields = getAdditionalFields(iExecuteFunctions, i) as IDataObject
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
@@ -32,7 +32,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
                 options,
             );
             break;
-        case "getKeywordSeries":
+        case ResourceOperations[Resources.Series].GetKeywordSeries:
             keyword_ids = iExecuteFunctions.getNodeParameter('keyword_ids', i) as string;
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
             date_to = iExecuteFunctions.getNodeParameter('date_to', i) as string;
@@ -50,7 +50,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
                 options,
             );
             break;
-        case "getKeywordViewSeries":
+        case ResourceOperations[Resources.Series].GetKeywordViewSeries:
             const dynamic_view_ids = iExecuteFunctions.getNodeParameter('dynamic_view_ids', i) as string;
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
             date_to = iExecuteFunctions.getNodeParameter('date_to', i) as string;
@@ -68,7 +68,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
                 options,
             );
             break;
-        case "getGroupSeries":
+        case ResourceOperations[Resources.Series].GetGroupSeries:
             const url_group_ids = iExecuteFunctions.getNodeParameter('url_group_ids', i) as string;
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
             date_to = iExecuteFunctions.getNodeParameter('date_to', i) as string;
@@ -86,7 +86,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
                 options,
             );
             break;
-        case "getBacklinkUrlSeries":
+        case ResourceOperations[Resources.Series].GetBacklinkUrlSeries:
             const url_id_for_all_backlinks = iExecuteFunctions.getNodeParameter('url_id_for_all_backlinks', i) as string;
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
             date_to = iExecuteFunctions.getNodeParameter('date_to', i) as string;
@@ -103,7 +103,7 @@ export async function executeSeriesOperation(iExecuteFunctions: IExecuteFunction
                 options,
             );
             break;
-        case "getBacklinkViewSeries":
+        case ResourceOperations[Resources.Series].GetBacklinkViewSeries:
             const backlink_view_ids = iExecuteFunctions.getNodeParameter('backlink_view_ids', i) as string;
             date_from = iExecuteFunctions.getNodeParameter('date_from', i) as string;
             date_to = iExecuteFunctions.getNodeParameter('date_to', i) as string;

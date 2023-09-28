@@ -1,6 +1,6 @@
 import { IExecuteFunctions } from "n8n-workflow";
 import { OptionsWithUri } from "request-promise-native";
-import { baseUri } from "./constants";
+import { ResourceOperations, Resources, baseUri } from "./constants";
 import { getAdditionalFields } from "./utils";
 
 
@@ -13,7 +13,7 @@ export async function executeUrlOperation(iExecuteFunctions: IExecuteFunctions, 
 
 
     switch (operation) {
-        case "listUrls":
+        case ResourceOperations[Resources.Urls].ListUrls:
             options = {
                 method: 'GET',
                 uri: `${baseUri}/urls`,
@@ -26,7 +26,7 @@ export async function executeUrlOperation(iExecuteFunctions: IExecuteFunctions, 
                 options,
             );
             break;
-        case "getUrl":
+        case ResourceOperations[Resources.Urls].GetUrl:
             url_id = iExecuteFunctions.getNodeParameter('url_id', i) as string;
 
             options = {
@@ -40,7 +40,7 @@ export async function executeUrlOperation(iExecuteFunctions: IExecuteFunctions, 
                 options,
             );
             break;
-        case "createUrl":
+        case ResourceOperations[Resources.Urls].CreateUrl:
             const url = iExecuteFunctions.getNodeParameter('url', i) as string;
             const country_code = iExecuteFunctions.getNodeParameter('country_code', i) as string;
             const language_code = iExecuteFunctions.getNodeParameter('language_code', i) as string;
@@ -66,7 +66,7 @@ export async function executeUrlOperation(iExecuteFunctions: IExecuteFunctions, 
                 options,
             );
             break;
-        case "deleteUrl":
+        case ResourceOperations[Resources.Urls].DeleteUrl:
             url_id = iExecuteFunctions.getNodeParameter('url_id', i) as string;
 
             options = {
@@ -81,7 +81,7 @@ export async function executeUrlOperation(iExecuteFunctions: IExecuteFunctions, 
                 options,
             );
             break;
-        case "updateUrl":
+        case ResourceOperations[Resources.Urls].UpdateUrl:
             url_id = iExecuteFunctions.getNodeParameter('url_id', i) as string;
 
             options = {

@@ -1,6 +1,6 @@
 import { IExecuteFunctions } from "n8n-workflow";
 import { OptionsWithUri } from "request-promise-native";
-import { baseUri } from "./constants";
+import { ResourceOperations, Resources, baseUri } from "./constants";
 import { getAdditionalFields } from "./utils";
 
 
@@ -16,7 +16,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
     const keyword_id = ["updateKeywords", "keywordResults"].includes(operation) ? iExecuteFunctions.getNodeParameter('keyword_id', i) as string : undefined
 
     switch (operation) {
-        case 'listKeywords':
+        case ResourceOperations[Resources.Keywords].ListKeywords:
             options = {
                 method: 'GET',
                 uri: `${baseUri}/urls/${urlId}/keywords`,
@@ -29,7 +29,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
                 options,
             );
             break;
-        case "addKeywords":
+        case ResourceOperations[Resources.Keywords].AddKeywords:
             const keywords = iExecuteFunctions.getNodeParameter('keywords', i) as string;
             const google_hl = iExecuteFunctions.getNodeParameter('google_hl', i) as string;
             const google_gl = iExecuteFunctions.getNodeParameter('google_gl', i) as string;
@@ -47,7 +47,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
                 options,
             );
             break;
-        case "deleteKeywords":
+        case ResourceOperations[Resources.Keywords].DeleteKeywords:
             keyword_ids = iExecuteFunctions.getNodeParameter('keyword_ids', i) as string;
 
             options = {
@@ -62,7 +62,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
                 options,
             );
             break;
-        case "updateKeywords":
+        case ResourceOperations[Resources.Keywords].UpdateKeywords:
             if (additionalFields && typeof additionalFields.tags === "string") {
                 body = { keyword: { tags: additionalFields.tags.split(",") } }
             }
@@ -79,7 +79,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
                 options,
             );
             break;
-        case "keywordResults":
+        case ResourceOperations[Resources.Keywords].KeywordResults:
             const time_start = iExecuteFunctions.getNodeParameter('time_start', i) as string;
             const time_end = iExecuteFunctions.getNodeParameter('time_end', i) as string;
 
@@ -95,7 +95,7 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
                 options,
             );
             break;
-        case "listDynamicViewKeywords":
+        case ResourceOperations[Resources.Keywords].ListDynamicViewKeywords:
             const dynamic_view_id = iExecuteFunctions.getNodeParameter('dynamic_view_id', i) as string;
 
             options = {

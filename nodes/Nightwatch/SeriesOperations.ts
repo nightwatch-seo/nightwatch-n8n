@@ -1,5 +1,9 @@
 import { INodeProperties } from 'n8n-workflow';
-import { Resources } from './constants';
+import { ResourceOperations, Resources } from './constants';
+
+
+const resource = Resources.Series
+const defaultOperation: string = ResourceOperations[resource].GetUrlSeries
 
 export const SeriesOperations: INodeProperties = {
 	displayName: 'Operation',
@@ -7,41 +11,41 @@ export const SeriesOperations: INodeProperties = {
 	type: 'options',
 	displayOptions: {
 		show: {
-			resource: [Resources.Series],
+			resource: [resource],
 		},
 	},
 	options: [
 		{
 			name: 'Get Backlink Url Series',
-			value: 'getBacklinkUrlSeries',
+			value: ResourceOperations[resource].GetBacklinkUrlSeries,
 			action: 'Get backlink url series a series',
 		},
 		{
 			name: 'Get Backlink View Series',
-			value: 'getBacklinkViewSeries',
+			value: ResourceOperations[resource].GetBacklinkViewSeries,
 			action: 'Get backlink view series a series',
 		},
 		{
 			name: 'Get Group Series',
-			value: 'getGroupSeries',
+			value: ResourceOperations[resource].GetGroupSeries,
 			action: 'Get group series a series',
 		},
 		{
 			name: 'Get Keyword Series',
-			value: 'getKeywordSeries',
+			value: ResourceOperations[resource].GetKeywordSeries,
 			action: 'Get keyword series a series',
 		},
 		{
 			name: 'Get Keyword View Series',
-			value: 'getKeywordViewSeries',
+			value: ResourceOperations[resource].GetKeywordViewSeries,
 			action: 'Get keyword view series a series',
 		},
 		{
 			name: 'Get Url Series',
-			value: 'getUrlSeries',
+			value: ResourceOperations[resource].GetUrlSeries,
 			action: 'Get url series a series',
 		},
 	],
-	default: 'getUrlSeries',
+	default: defaultOperation,
 	noDataExpression: true,
 };

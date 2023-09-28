@@ -1,6 +1,8 @@
 import { INodeProperties } from "n8n-workflow";
-import { Resources } from "./constants";
+import { ResourceOperations, Resources } from "./constants";
 
+const resource = Resources.Competitors
+const defaultOperation: string = ResourceOperations[resource].ListCompetitors
 
 export const CompetitorsOperations: INodeProperties = {
     displayName: 'Competitors',
@@ -8,26 +10,26 @@ export const CompetitorsOperations: INodeProperties = {
     type: 'options',
     displayOptions: {
         show: {
-            resource: [Resources.Competitors],
+            resource: [resource],
         }
     },
     options: [
         {
             name: 'Add Competitors',
-            value: 'addCompetitors',
+            value: ResourceOperations[resource].AddCompetitors,
             action: 'Add competitors',
         },
         {
             name: 'Remove Competitors',
-            value: 'removeCompetitors',
+            value: ResourceOperations[resource].RemoveCompetitors,
             action: 'Remove competitors',
         },
         {
             name: 'List Competitors',
-            value: 'listCompetitors',
+            value: ResourceOperations[resource].ListCompetitors,
             action: 'List competitors',
         },
     ],
-    default: 'listCompetitors',
+    default: defaultOperation,
     noDataExpression: true,
 }

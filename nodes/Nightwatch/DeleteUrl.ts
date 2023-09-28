@@ -1,10 +1,10 @@
 import { INodeProperties } from 'n8n-workflow';
-import { Resources } from './constants';
+import { ResourceOperations, Resources } from './constants';
 
 const displayOptions = {
     show: {
         resource: [Resources.Urls],
-        operation: ['deleteUrl'],
+        operation: [ResourceOperations[Resources.Urls].DeleteUrl],
     },
 };
 

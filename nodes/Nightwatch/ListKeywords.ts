@@ -1,10 +1,10 @@
 import { INodeProperties } from 'n8n-workflow';
-import { Resources } from './constants';
+import { ResourceOperations, Resources } from './constants';
 
 const displayOptions = {
     show: {
         resource: [Resources.Keywords],
-        operation: ['listKeywords'],
+        operation: [ResourceOperations[Resources.Keywords].ListKeywords],
     },
 }
 

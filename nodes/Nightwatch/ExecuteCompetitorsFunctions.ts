@@ -1,6 +1,6 @@
 import { IExecuteFunctions } from "n8n-workflow";
 import { OptionsWithUri } from "request-promise-native";
-import { baseUri } from "./constants";
+import { ResourceOperations, Resources, baseUri } from "./constants";
 import { getAdditionalFields } from "./utils";
 
 
@@ -15,7 +15,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
 
 
     switch (operation) {
-        case "listCompetitors":
+        case ResourceOperations[Resources.Competitors].ListCompetitors:
             options = {
                 method: 'GET',
                 uri: `${baseUri}/urls/${urlId}/competitors`,
@@ -27,7 +27,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
                 options,
             );
             break;
-        case "addCompetitors":
+        case ResourceOperations[Resources.Competitors].AddCompetitors:
             url = iExecuteFunctions.getNodeParameter('url', i) as string;
             options = {
                 method: 'POST',
@@ -42,7 +42,7 @@ export async function executeCompetitorsOperation(iExecuteFunctions: IExecuteFun
                 options,
             );
             break;
-        case "removeCompetitors":
+        case ResourceOperations[Resources.Competitors].RemoveCompetitors:
             const competitor_id = iExecuteFunctions.getNodeParameter('competitor_id', i) as string;
             options = {
                 method: 'DELETE',

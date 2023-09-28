@@ -1,5 +1,9 @@
 import { INodeProperties } from "n8n-workflow";
-import { Resources } from "./constants";
+import { ResourceOperations, Resources } from "./constants";
+
+
+const resource = Resources.Keywords
+const defaultOperation: string = ResourceOperations[resource].ListKeywords
 
 
 export const KeywordsOperations: INodeProperties = {
@@ -8,41 +12,41 @@ export const KeywordsOperations: INodeProperties = {
     type: 'options',
     displayOptions: {
         show: {
-            resource: [Resources.Keywords],
+            resource: [resource],
         }
     },
     options: [
         {
             name: 'Add Keywords',
-            value: 'addKeywords',
+            value: ResourceOperations[resource].AddKeywords,
             action: 'Add keywords',
         },
         {
             name: 'Delete Keywords',
-            value: 'deleteKeywords',
+            value: ResourceOperations[resource].DeleteKeywords,
             action: 'Delete keywords',
         },
         {
-            name: 'Keywords Results',
-            value: 'keywordResults',
-            action: 'Keywords results',
+            name: 'Keyword Results',
+            value: ResourceOperations[resource].KeywordResults,
+            action: 'Keyword results',
         },
         {
             name: 'List Dynamic View Keywords',
-            value: 'listDynamicViewKeywords',
+            value: ResourceOperations[resource].ListDynamicViewKeywords,
             action: 'List dynamic view keywords',
         },
         {
             name: 'List Keywords',
-            value: 'listKeywords',
+            value: ResourceOperations[resource].ListKeywords,
             action: 'List keywords',
         },
         {
             name: 'Update Keywords',
-            value: 'updateKeywords',
+            value: ResourceOperations[resource].UpdateKeywords,
             action: 'Update keywords',
         },
     ],
-    default: 'listKeywords',
+    default: defaultOperation,
     noDataExpression: true,
 }

@@ -1,5 +1,8 @@
 import { INodeProperties } from 'n8n-workflow';
-import { Resources } from './constants';
+import { ResourceOperations, Resources } from './constants';
+
+const resource = Resources.Urls
+const defaultOperation: string = ResourceOperations[resource].ListUrls
 
 export const UrlsOperations: INodeProperties = {
     displayName: 'Operation',
@@ -7,36 +10,36 @@ export const UrlsOperations: INodeProperties = {
     type: 'options',
     displayOptions: {
         show: {
-            resource: [Resources.Urls],
+            resource: [resource],
         },
     },
     options: [
         {
             action: 'Create url',
-            value: 'createUrl',
+            value: ResourceOperations[resource].CreateUrl,
             name: 'Create Url',
         },
         {
             action: 'Delete url',
-            value: 'deleteUrl',
+            value: ResourceOperations[resource].DeleteUrl,
             name: 'Delete Url',
         },
         {
             action: 'Get url',
-            value: 'getUrl',
+            value: ResourceOperations[resource].GetUrl,
             name: 'Get Url',
         },
         {
             action: 'List urls',
-            value: 'listUrls',
+            value: ResourceOperations[resource].ListUrls,
             name: 'List Urls',
         },
         {
             action: 'Update url',
-            value: 'updateUrl',
+            value: ResourceOperations[resource].UpdateUrl,
             name: 'Update Url',
         },
     ],
-    default: 'listUrls',
+    default: defaultOperation,
     noDataExpression: true,
 };
