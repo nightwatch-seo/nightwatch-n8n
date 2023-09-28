@@ -4,7 +4,7 @@ import {
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
-import { NightWatchCredentialsName } from '../nodes/Nightwatch/constants';
+import { NightWatchCredentialsName, baseUri } from '../nodes/Nightwatch/constants';
 
 export class NightwatchApi implements ICredentialType {
 	name = NightWatchCredentialsName;
@@ -30,7 +30,7 @@ export class NightwatchApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://api.nightwatch.io/api/v1',
+			baseURL: baseUri,
 			url: '/user',
 		},
 	};
