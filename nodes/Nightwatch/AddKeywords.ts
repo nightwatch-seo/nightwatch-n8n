@@ -16,8 +16,8 @@ export const addKeywordsOperations: INodeProperties[] = [
         required: true,
         displayOptions,
         default: '',
-        placeholder: 'keyword1\nkeyword2\nkeyword3',
-        description: 'Search queries separated by new lines (\n)',
+        placeholder: 'keyword1_part1 keyword1_part2,keyword3,keyword4',
+        description: 'Search queries separated by commas (,)',
     },
     {
         displayName: 'Google HL',

@@ -35,12 +35,16 @@ export async function executeKeywordsOperation(iExecuteFunctions: IExecuteFuncti
             const google_gl = iExecuteFunctions.getNodeParameter('google_gl', i) as string;
             const search_engine = iExecuteFunctions.getNodeParameter('search_engine', i) as string;
 
+            const splitKeywords = keywords.split(",")
+            const keywordsString = splitKeywords.join("\n")
+
             options = {
                 method: 'POST',
                 uri: `${baseUri}/urls/${urlId}/keywords/batch_create`,
                 json: true,
-                body: { keywords, google_hl, google_gl, search_engine, ...additionalFields }
+                body: { keywords: keywordsString, google_hl, google_gl, search_engine, ...additionalFields }
             };
+
             responseData = await iExecuteFunctions.helpers.requestWithAuthentication.call(
                 iExecuteFunctions,
                 NightWatchCredentialsName,
